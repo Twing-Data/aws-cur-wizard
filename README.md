@@ -1,5 +1,7 @@
 # AWS Cost and Usage Report (CUR) Analytics with Rill
 
+[![AWS Cost and Usage Report (CUR) Analytics with Rill Video Demo](https://img.youtube.com/vi/7AYJUm1w2SQ/maxresdefault.jpg)](https://youtu.be/7AYJUm1w2SQ)
+
 This project provides a comprehensive, automated solution for analyzing AWS Cost and Usage Reports (CUR). It takes raw CUR data exported in Parquet format, processes it, and dynamically generates a powerful, interactive dashboard using [Rill](https://www.rilldata.com/).
 
 ## Goal
