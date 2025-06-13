@@ -1,0 +1,3 @@
+duckdb
+python-dotenv
+Jinja2

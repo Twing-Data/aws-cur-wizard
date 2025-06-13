@@ -1,0 +1,16 @@
+compiler: rillv1
+
+display_name: "AWS Cost Tracker"
+
+# These are example mock users to test your security policies.
+# Learn more: https://docs.rilldata.com/manage/security
+mock_users:
+  - email: adam@twingdata.com
+  - email: dan@twingdata.com
+  - email: simon@twingdata.com
+
+# maybe this will be nice to use once auth works
+olap_connector: duckdb
+metrics_views:
+  security:
+    access: "'{{.user.domain }}' = 'twingdata.com'"
