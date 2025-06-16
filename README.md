@@ -58,7 +58,7 @@ This is the core logic that inspects the schema of the `normalized.parquet` file
 
 ```bash
 # Clone the repository if you haven't already
-cd aws-cost-tracker
+cd aws-cur-wizard
 
 # Create and activate a virtual environment
 python3 -m venv venv
@@ -70,7 +70,7 @@ pip install -r requirements.txt
 
 ### 3. Configuration
 
-- Create a `.env` file in the `aws-cost-tracker` directory.
+- Create a `.env` file in the `aws-cur-wizard` directory.
 - Add the following variables to your `.env` file, replacing the example paths with your actual paths:
 
   ```
