@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://youtu.be/7AYJUm1w2SQ" title="Watch the video on YouTube">
-    <img src="https://img.youtube.com/vi/7AYJUm1w2SQ/maxresdefault.jpg" alt="AWS Cost and Usage Report (CUR) Analytics with Rill Video Demo" width="80%">
+    <img src="./assets/demo_thumb.jpg" alt="AWS Cost and Usage Report (CUR) Analytics with Rill Video Demo" width="80%">
   </a>
 </p>
 
