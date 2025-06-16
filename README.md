@@ -121,4 +121,4 @@ The script will normalize your data, generate the Rill project based on your con
 
 ## Acknowledgements
 
-A special thanks to [Dan Goldin](https://www.linkedin.com/in/dgoldin/) for the initial idea and inspiration for this project.
+A special thanks to [Dan Goldin](https://github.com/dangoldin) for the initial idea and inspiration for this project.
