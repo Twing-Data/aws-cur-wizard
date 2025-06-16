@@ -1,4 +1,5 @@
 # AWS Cost and Usage Report (CUR) Analytics with Rill
+<iframe width="560" height="315" src="[https://www.youtube.com/embed/video-id](https://youtu.be/7AYJUm1w2SQ)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [![AWS Cost and Usage Report (CUR) Analytics with Rill Video Demo](https://img.youtube.com/vi/7AYJUm1w2SQ/maxresdefault.jpg)](https://youtu.be/7AYJUm1w2SQ)
 
