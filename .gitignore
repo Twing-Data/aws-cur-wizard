@@ -5,10 +5,10 @@ venv/
 .DS_Store
 
 # Rill
-.env
 tmp/
 tmp_copy/
 pg_data/
 *.parquet
 data/
 
+__pycache__/
