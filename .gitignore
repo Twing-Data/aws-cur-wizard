@@ -12,3 +12,4 @@ pg_data/
 *.parquet
 data/
 
+__pycache__/
