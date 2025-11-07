@@ -1,0 +1,8 @@
+# Model YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/models
+
+type: model
+materialize: true
+
+sql: |
+  select * from read_parquet('s3://{{ .env.bucket_name }}/{{ .env.s3_input_data_dir }}/*.parquet')
