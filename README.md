@@ -74,8 +74,15 @@ pip install -r requirements.txt
 - Add the following variables to your `.env` file, replacing the example paths with your actual paths:
 
   ```
-  # Path to the directory containing your raw Parquet CUR files
-  INPUT_DATA_DIR=./data/input
+  AWS_ACCESS_KEY_ID=aws_access_key_id
+  AWS_SECRET_ACCESS_KEY=aws_secret_access_key
+  AWS_REGION=aws_region
+
+  # S3 bucket containing raw CUR CSV or parquet files
+  BUCKET_NAME=cur_data_bucket
+
+  # Path with bucket containing raw CUR CSV or parquet files
+  S3_INPUT_DATA_DIR=cur_data
 
   # Path where the intermediate normalized Parquet file will be stored
   NORMALIZED_DATA_DIR=./data/normalized
