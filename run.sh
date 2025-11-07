@@ -12,14 +12,19 @@ Usage
   ./run.sh [OPTIONS]
 
 Steps performed
-  1.   Normalise raw CUR files found in \$INPUT_DATA_DIR
+  1.   Normalise raw CUR files found in s3://\$BUCKET_NAME/\$S3_INPUT_DATA_PATH
   2.   Generate metrics / explore / *one canvas per tag-prefix*
   3.   Launch Rill against the output project
 
-Required environment variables ( via .env or export )  
-  INPUT_DATA_DIR         Path containing raw CUR CSV or parquet files  
-  NORMALIZED_DATA_DIR    Where the normalised parquet will be written  
-  RILL_PROJECT_PATH      Rill project root folder
+Required environment variables ( via .env or export )
+
+  AWS_ACCESS_KEY_ID              AWS Access Key ID
+  AWS_SECRET_ACCESS_KEY          AWS Secret Access Key
+  AWS_REGION                     AWS Region
+  BUCKET_NAME                    S3 bucket containing raw CUR CSV or parquet files
+  S3_INPUT_DATA_PATH             Path with bucket containing raw CUR CSV or parquet files
+  NORMALIZED_DATA_DIR            Where the normalised parquet will be written (locally)
+  RILL_PROJECT_PATH              Rill project root folder
 
 Optional environment variables  
   DIM_PREFIXES           Comma list of dimension prefixes for canvases
@@ -52,17 +57,22 @@ if [[ -f "$HERE/.env" ]]; then
   . "$HERE/.env"
   set +a
 else
-  echo "⚠️  No .env file found at $HERE/.env; ensure INPUT_DATA_DIR, NORMALIZED_DATA_DIR and RILL_PROJECT_PATH are exported."
+  echo "⚠️  No .env file found at $HERE/.env; ensure AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION,
+        BUCKET_NAME, S3_INPUT_DATA_DIR, NORMALIZED_DATA_DIR and RILL_PROJECT_PATH are exported."
 fi
 
-: "${INPUT_DATA_DIR:?Need to set INPUT_DATA_DIR}"
+: "${AWS_ACCESS_KEY_ID:?Need to set AWS_ACCESS_KEY_ID}"
+: "${AWS_SECRET_ACCESS_KEY:?Need to set AWS_SECRET_ACCESS_KEY}"
+: "${AWS_REGION:?Need to set AWS_REGION}"
+: "${BUCKET_NAME:?Need to set BUCKET_NAME}"
+: "${S3_INPUT_DATA_PATH:?Need to set S3_INPUT_DATA_PATH}"
 : "${NORMALIZED_DATA_DIR:?Need to set NORMALIZED_DATA_DIR}"
 : "${RILL_PROJECT_PATH:?Need to set RILL_PROJECT_PATH}"
 
 
 GEN_FLAGS=("$@")          
 
-echo "▶ Normalizing CUR files from INPUT_DATA_DIR: $INPUT_DATA_DIR"
+echo "▶ Normalizing CUR data s3://$BUCKET_NAME/$S3_INPUT_DATA_PATH"
 python "$HERE/scripts/normalize.py"
 
 echo "▶ Generating Rill YAML (using RILL_PROJECT_PATH: $RILL_PROJECT_PATH)"
