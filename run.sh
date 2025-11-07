@@ -12,7 +12,7 @@ Usage
   ./run.sh [OPTIONS]
 
 Steps performed
-  1.   Normalise raw CUR files found in s3://\$BUCKET_NAME/\$S3_INPUT_DATA_PATH
+  1.   Normalise raw CUR files found in s3://\$BUCKET_NAME/\$S3_INPUT_DATA_DIR
   2.   Generate metrics / explore / *one canvas per tag-prefix*
   3.   Launch Rill against the output project
 
@@ -22,7 +22,7 @@ Required environment variables ( via .env or export )
   AWS_SECRET_ACCESS_KEY          AWS Secret Access Key
   AWS_REGION                     AWS Region
   BUCKET_NAME                    S3 bucket containing raw CUR CSV or parquet files
-  S3_INPUT_DATA_PATH             Path with bucket containing raw CUR CSV or parquet files
+  S3_INPUT_DATA_DIR              Directory path with bucket containing raw CUR CSV or parquet files
   NORMALIZED_DATA_DIR            Where the normalised parquet will be written (locally)
   RILL_PROJECT_PATH              Rill project root folder
 
@@ -65,14 +65,14 @@ fi
 : "${AWS_SECRET_ACCESS_KEY:?Need to set AWS_SECRET_ACCESS_KEY}"
 : "${AWS_REGION:?Need to set AWS_REGION}"
 : "${BUCKET_NAME:?Need to set BUCKET_NAME}"
-: "${S3_INPUT_DATA_PATH:?Need to set S3_INPUT_DATA_PATH}"
+: "${S3_INPUT_DATA_DIR:?Need to set S3_INPUT_DATA_DIR}"
 : "${NORMALIZED_DATA_DIR:?Need to set NORMALIZED_DATA_DIR}"
 : "${RILL_PROJECT_PATH:?Need to set RILL_PROJECT_PATH}"
 
 
 GEN_FLAGS=("$@")          
 
-echo "▶ Normalizing CUR data s3://$BUCKET_NAME/$S3_INPUT_DATA_PATH"
+echo "▶ Normalizing CUR data s3://$BUCKET_NAME/$S3_INPUT_DATA_DIR"
 python "$HERE/scripts/normalize.py"
 
 echo "▶ Generating Rill YAML (using RILL_PROJECT_PATH: $RILL_PROJECT_PATH)"
