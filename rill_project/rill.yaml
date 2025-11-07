@@ -14,3 +14,11 @@ olap_connector: duckdb
 metrics_views:
   security:
     access: "'{{.user.domain }}' = 'twingdata.com'"
+
+# S3 connector configuration
+type: connector
+driver: s3
+aws_access_key_id: "{{ .env.aws_access_key_id }}"
+aws_secret_access_key: "{{ .env.aws_secret_access_key }}"
+bucket: "{{ .env.bucket_name }}"
+region: "{{ .env.aws_region }}"
