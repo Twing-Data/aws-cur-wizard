@@ -5,4 +5,4 @@ type: model
 materialize: true
 
 sql: |
-  select * from read_parquet('s3://{{ .env.bucket_name }}/{{ .env.s3_input_data_dir }}/*.parquet')
+  select * from read_{{ .env.input_data_type }}('s3://{{ .env.bucket_name }}/{{ .env.s3_input_data_dir }}/*.{{ .env.input_data_type }}')
