@@ -21,7 +21,51 @@ The primary goal is to significantly lower the barrier to gaining deep insights 
 
 This project automates the entire pipeline from raw data to a rich, interactive analytics experience, providing "best-practice" visualizations out-of-the-box.
 
-## How It Works
+## How it works
+
+Using the `rill start` command on the command line, Rill takes over and automatically reads data from a preconfigured S3 location. It then generates loads the data into a DuckDB session for OLAP analysis, and when the users requests the Metrics or Dashboard view in the browser/GUI, Rill also generates the corresponding YAML on the fly. This YAML can be easily inspected either in browser, or in a local file editor.
+
+## How to use
+
+### 1. Prerequisites
+
+- Python 3.x
+- [Rill](https://docs.rilldata.com/install) CLI installed.
+
+### 2. Setup
+
+```bash
+# Clone the repository if you haven't already
+cd aws-cur-wizard
+
+# cd to correct location, and edit the sample .env file
+cd rill_project
+vim .env
+
+# Run rill
+rill start
+```
+
+### 3. Populating Metrics and Dashboards
+
+Give Rill a minute or so to boot up and pull in the data. Once it launches in the browser, you should see a table (here named `cur`) in the Data section at bottom right.
+
+![data-view](./assets/screenshot_01_data_loaded.png)
+
+After clicking on the table name, there will be a button at top right that says `Generate metrics with AI`. Click on that to generate metrics.
+
+![generate-metrics-button](./assets/screenshot_02_generate_metrics.png)
+
+Now you will see a `metrics.yaml` file in the file explorer at left. Click on the file name to see the available metrics.
+
+![metrics-view](./assets/screenshot_03_metrics_view.png)
+
+The metrics view also has a `Go to dashboard` button available (see screenshot above). You can click on this button, or the `dashboards/explore.yaml` in the file explorer, to see the Dashboard for your data.
+
+![dashboard-view](./assets/screenshot_04_dashboard_view.png)
+
+
+## Deprecated: How it works using the `run.sh` script
 
 The process is orchestrated by the `run.sh` script and consists of two main stages:
 
@@ -47,7 +91,7 @@ This is the core logic that inspects the schema of the `normalized.parquet` file
 
   This results in dashboard pages that are perfectly customized to your organization's unique data, generated dynamically from the `templates/map_canvas_template.yml.j2` template.
 
-## How to Use
+## Deprecated: How to use with the `run.sh` script
 
 ### 1. Prerequisites
 
