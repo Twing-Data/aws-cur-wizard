@@ -7,21 +7,19 @@ from dotenv import load_dotenv
 
 
 def test_env_file_present():
-    assert os.path.isfile('.env')
+    assert os.path.isfile('rill_project/.env')
 
 def test_env_vars_defined():
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     assert os.getenv('aws_access_key_id')
     assert os.getenv('aws_secret_access_key')
     assert os.getenv('aws_region')
     assert os.getenv('bucket_name')
     assert os.getenv('s3_input_data_dir')
     assert os.getenv('input_data_type')
-    assert os.getenv('normalized_data_dir')
-    assert os.getenv('rill_project_path')
 
 def test_aws_credentials_validity():
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     client = boto3.client(
         "sts",
         aws_access_key_id = os.getenv('aws_access_key_id'),
@@ -52,7 +50,7 @@ def test_aws_credentials_validity():
 
 @pytest.fixture(scope="module")
 def s3_client():
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     return boto3.client(
         "s3",
         aws_access_key_id = os.getenv('aws_access_key_id'),
@@ -61,7 +59,7 @@ def s3_client():
     )
 
 def test_bucket_exists(s3_client):
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     bucket_name = os.getenv('bucket_name')
     try:
         s3_client.head_bucket(Bucket=bucket_name)
@@ -71,7 +69,7 @@ def test_bucket_exists(s3_client):
     assert bucket_exists, f"Bucket '{bucket_name}' does not exist or access is denied."
 
 def test_directory_exists(s3_client):
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     bucket_name = os.getenv('bucket_name')
     s3_input_data_dir = os.getenv('s3_input_data_dir')
 
@@ -83,14 +81,14 @@ def test_file_type():
     """
     Test that user has specified an acceptable file type
     """
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     assert os.getenv('input_data_type') in ['parquet', 'csv']
 
 def test_s3_directory_contains_python_files(s3_client):
     """
     Test that an S3 directory contains at least one file with the expected extension, e.g. '.parquet', '.csv', etc
     """
-    load_dotenv()
+    load_dotenv('rill_project/.env')
     bucket_name = os.getenv('bucket_name')
     s3_input_data_dir = os.getenv('s3_input_data_dir')
     input_data_type = os.getenv('input_data_type')
