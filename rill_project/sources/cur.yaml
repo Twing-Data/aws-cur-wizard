@@ -5,4 +5,4 @@ type: model
 materialize: true
 
 sql: |
-  select * from read_{{ .env.input_data_type }}('s3://{{ .env.bucket_name }}/{{ .env.s3_input_data_dir }}/*.{{ .env.input_data_type }}')
+  select * from read_{{ .env.input_data_type }}('s3://{{ .env.bucket_name }}/{{ .env.s3_input_data_dir }}/{{ .env.partition_scheme }}*.{{ .env.input_data_type }}')
