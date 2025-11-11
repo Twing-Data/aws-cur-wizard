@@ -1,0 +1,10 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+display_name: "CUR Table Metrics dashboard"
+metrics_view: cur_metrics
+
+dimensions: '*'
+measures: '*'

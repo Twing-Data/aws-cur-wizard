@@ -1,0 +1,289 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/metrics-views
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: CUR Table Metrics
+model: cur
+timeseries: bill_billing_period_end_date
+
+dimensions:
+  - name: bill_bill_type
+    display_name: Bill Bill Type
+    column: bill_bill_type
+  - name: bill_billing_entity
+    display_name: Bill Billing Entity
+    column: bill_billing_entity
+  - name: bill_billing_period_end_date
+    display_name: Bill Billing Period End Date
+    column: bill_billing_period_end_date
+  - name: bill_billing_period_start_date
+    display_name: Bill Billing Period Start Date
+    column: bill_billing_period_start_date
+  - name: bill_invoice_id
+    display_name: Bill Invoice Id
+    column: bill_invoice_id
+  - name: bill_invoicing_entity
+    display_name: Bill Invoicing Entity
+    column: bill_invoicing_entity
+  - name: bill_payer_account_id
+    display_name: Bill Payer Account Id
+    column: bill_payer_account_id
+  - name: bill_payer_account_name
+    display_name: Bill Payer Account Name
+    column: bill_payer_account_name
+  - name: identity_line_item_id
+    display_name: Identity Line Item Id
+    column: identity_line_item_id
+  - name: identity_time_interval
+    display_name: Identity Time Interval
+    column: identity_time_interval
+  - name: line_item_availability_zone
+    display_name: Line Item Availability Zone
+    column: line_item_availability_zone
+  - name: line_item_blended_rate
+    display_name: Line Item Blended Rate
+    column: line_item_blended_rate
+  - name: line_item_currency_code
+    display_name: Line Item Currency Code
+    column: line_item_currency_code
+  - name: line_item_legal_entity
+    display_name: Line Item Legal Entity
+    column: line_item_legal_entity
+  - name: line_item_line_item_description
+    display_name: Line Item Line Item Description
+    column: line_item_line_item_description
+  - name: line_item_line_item_type
+    display_name: Line Item Line Item Type
+    column: line_item_line_item_type
+  - name: line_item_net_unblended_rate
+    display_name: Line Item Net Unblended Rate
+    column: line_item_net_unblended_rate
+  - name: line_item_operation
+    display_name: Line Item Operation
+    column: line_item_operation
+  - name: line_item_product_code
+    display_name: Line Item Product Code
+    column: line_item_product_code
+  - name: line_item_tax_type
+    display_name: Line Item Tax Type
+    column: line_item_tax_type
+  - name: line_item_unblended_rate
+    display_name: Line Item Unblended Rate
+    column: line_item_unblended_rate
+  - name: line_item_usage_account_id
+    display_name: Line Item Usage Account Id
+    column: line_item_usage_account_id
+  - name: line_item_usage_account_name
+    display_name: Line Item Usage Account Name
+    column: line_item_usage_account_name
+  - name: line_item_usage_end_date
+    display_name: Line Item Usage End Date
+    column: line_item_usage_end_date
+  - name: line_item_usage_start_date
+    display_name: Line Item Usage Start Date
+    column: line_item_usage_start_date
+  - name: line_item_usage_type
+    display_name: Line Item Usage Type
+    column: line_item_usage_type
+  - name: pricing_currency
+    display_name: Pricing Currency
+    column: pricing_currency
+  - name: pricing_lease_contract_length
+    display_name: Pricing Lease Contract Length
+    column: pricing_lease_contract_length
+  - name: pricing_offering_class
+    display_name: Pricing Offering Class
+    column: pricing_offering_class
+  - name: pricing_public_on_demand_rate
+    display_name: Pricing Public On Demand Rate
+    column: pricing_public_on_demand_rate
+  - name: pricing_purchase_option
+    display_name: Pricing Purchase Option
+    column: pricing_purchase_option
+  - name: pricing_rate_code
+    display_name: Pricing Rate Code
+    column: pricing_rate_code
+  - name: pricing_rate_id
+    display_name: Pricing Rate Id
+    column: pricing_rate_id
+  - name: pricing_term
+    display_name: Pricing Term
+    column: pricing_term
+  - name: pricing_unit
+    display_name: Pricing Unit
+    column: pricing_unit
+  - name: product_comment
+    display_name: Product Comment
+    column: product_comment
+  - name: product_fee_code
+    display_name: Product Fee Code
+    column: product_fee_code
+  - name: product_fee_description
+    display_name: Product Fee Description
+    column: product_fee_description
+  - name: product_from_location
+    display_name: Product From Location
+    column: product_from_location
+  - name: product_from_location_type
+    display_name: Product From Location Type
+    column: product_from_location_type
+  - name: product_from_region_code
+    display_name: Product From Region Code
+    column: product_from_region_code
+  - name: product_instance_family
+    display_name: Product Instance Family
+    column: product_instance_family
+  - name: product_instance_type
+    display_name: Product Instance Type
+    column: product_instance_type
+  - name: product_instancesku
+    display_name: Product Instancesku
+    column: product_instancesku
+  - name: product_location
+    display_name: Product Location
+    column: product_location
+  - name: product_location_type
+    display_name: Product Location Type
+    column: product_location_type
+  - name: product_operation
+    display_name: Product Operation
+    column: product_operation
+  - name: product_pricing_unit
+    display_name: Product Pricing Unit
+    column: product_pricing_unit
+  - name: product_product_family
+    display_name: Product Product Family
+    column: product_product_family
+  - name: product_region_code
+    display_name: Product Region Code
+    column: product_region_code
+  - name: product_servicecode
+    display_name: Product Servicecode
+    column: product_servicecode
+  - name: product_sku
+    display_name: Product Sku
+    column: product_sku
+  - name: product_to_location
+    display_name: Product To Location
+    column: product_to_location
+  - name: product_to_location_type
+    display_name: Product To Location Type
+    column: product_to_location_type
+  - name: product_to_region_code
+    display_name: Product To Region Code
+    column: product_to_region_code
+  - name: product_usagetype
+    display_name: Product Usagetype
+    column: product_usagetype
+  - name: reservation_availability_zone
+    display_name: Reservation Availability Zone
+    column: reservation_availability_zone
+  - name: reservation_end_time
+    display_name: Reservation End Time
+    column: reservation_end_time
+  - name: reservation_modification_status
+    display_name: Reservation Modification Status
+    column: reservation_modification_status
+  - name: reservation_normalized_units_per_reservation
+    display_name: Reservation Normalized Units Per Reservation
+    column: reservation_normalized_units_per_reservation
+  - name: reservation_number_of_reservations
+    display_name: Reservation Number Of Reservations
+    column: reservation_number_of_reservations
+  - name: reservation_reservation_a_r_n
+    display_name: Reservation Reservation A R N
+    column: reservation_reservation_a_r_n
+  - name: reservation_start_time
+    display_name: Reservation Start Time
+    column: reservation_start_time
+  - name: reservation_subscription_id
+    display_name: Reservation Subscription Id
+    column: reservation_subscription_id
+  - name: reservation_total_reserved_normalized_units
+    display_name: Reservation Total Reserved Normalized Units
+    column: reservation_total_reserved_normalized_units
+  - name: reservation_total_reserved_units
+    display_name: Reservation Total Reserved Units
+    column: reservation_total_reserved_units
+  - name: reservation_units_per_reservation
+    display_name: Reservation Units Per Reservation
+    column: reservation_units_per_reservation
+  - name: savings_plan_end_time
+    display_name: Savings Plan End Time
+    column: savings_plan_end_time
+  - name: savings_plan_instance_type_family
+    display_name: Savings Plan Instance Type Family
+    column: savings_plan_instance_type_family
+  - name: savings_plan_offering_type
+    display_name: Savings Plan Offering Type
+    column: savings_plan_offering_type
+  - name: savings_plan_payment_option
+    display_name: Savings Plan Payment Option
+    column: savings_plan_payment_option
+  - name: savings_plan_purchase_term
+    display_name: Savings Plan Purchase Term
+    column: savings_plan_purchase_term
+  - name: savings_plan_region
+    display_name: Savings Plan Region
+    column: savings_plan_region
+  - name: savings_plan_savings_plan_a_r_n
+    display_name: Savings Plan Savings Plan A R N
+    column: savings_plan_savings_plan_a_r_n
+  - name: savings_plan_start_time
+    display_name: Savings Plan Start Time
+    column: savings_plan_start_time
+
+measures:
+  - name: total_blended_cost_measure
+    display_name: Total Blended Cost
+    expression: SUM(line_item_blended_cost)
+    description: Total sum of blended costs across all line items.
+    format_preset: humanize
+  - name: average_blended_cost_measure
+    display_name: Average Blended Cost
+    expression: AVG(line_item_blended_cost)
+    description: Average blended cost per line item.
+    format_preset: humanize
+  - name: total_unblended_cost_measure
+    display_name: Total Unblended Cost
+    expression: SUM(line_item_unblended_cost)
+    description: Total sum of unblended costs across all line items.
+    format_preset: humanize
+  - name: average_unblended_cost_measure
+    display_name: Average Unblended Cost
+    expression: AVG(line_item_unblended_cost)
+    description: Average unblended cost per line item.
+    format_preset: humanize
+  - name: total_discount_measure
+    display_name: Total Discount
+    expression: SUM(discount_total_discount)
+    description: Total sum of all discounts applied.
+    format_preset: humanize
+  - name: total_usage_amount_measure
+    display_name: Total Usage Amount
+    expression: SUM(line_item_usage_amount)
+    description: Total usage amount across all line items.
+    format_preset: humanize
+  - name: average_usage_amount_measure
+    display_name: Average Usage Amount
+    expression: AVG(line_item_usage_amount)
+    description: Average usage amount per line item.
+    format_preset: humanize
+  - name: total_reservation_effective_cost_measure
+    display_name: Total Reservation Effective Cost
+    expression: SUM(reservation_effective_cost)
+    description: Total effective cost for all reservations.
+    format_preset: humanize
+  - name: total_savings_plan_effective_cost_measure
+    display_name: Total Savings Plan Effective Cost
+    expression: SUM(savings_plan_savings_plan_effective_cost)
+    description: Total effective cost for all savings plans.
+    format_preset: humanize
+  - name: line_item_count_measure
+    display_name: Line Item Count
+    expression: COUNT(identity_line_item_id)
+    description: Total number of line items in the CUR table.
+    format_preset: humanize

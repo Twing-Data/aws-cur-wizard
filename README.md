@@ -40,30 +40,24 @@ cd aws-cur-wizard
 
 # cd to correct location, and edit the sample .env file
 cd rill_project
+mv .env.SAMPLE .env
 vim .env
 
 # Run rill
 rill start
 ```
 
-### 3. Populating Metrics and Dashboards
+### 3. Viewing Metrics and Dashboards
 
-Give Rill a minute or so to boot up and pull in the data. Once it launches in the browser, you should see a table (here named `cur`) in the Data section at bottom right.
+Give Rill a few seconds to start up, and to pull in the data (if this is the first run). Once it launches in the browser, you should see a table (here named `cur`) in the Data section at bottom right.
 
-![data-view](./assets/screenshot_01_data_loaded.png)
+![data-view](./assets/screenshot_rill_data_view.png)
 
-After clicking on the table name, there will be a button at top right that says `Generate metrics with AI`. Click on that to generate metrics.
+In the "file view" navigator at top left, you can expand `dashboards` and `metrics`, and click on the corresponding YAML files to interact with your data.
 
-![generate-metrics-button](./assets/screenshot_02_generate_metrics.png)
+![metrics-view](./assets/screenshot_rill_metrics_view.png)
 
-Now you will see a `metrics.yaml` file in the file explorer at left. Click on the file name to see the available metrics.
-
-![metrics-view](./assets/screenshot_03_metrics_view.png)
-
-The metrics view also has a `Go to dashboard` button available (see screenshot above). You can click on this button, or the `dashboards/explore.yaml` in the file explorer, to see the Dashboard for your data.
-
-![dashboard-view](./assets/screenshot_04_dashboard_view.png)
-
+![dashboard-view](./assets/screenshot_rill_dashboard_view.png)
 
 ## Deprecated: How it works using the `run.sh` script
 
