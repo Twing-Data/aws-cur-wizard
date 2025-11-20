@@ -1,10 +1,95 @@
-# Explore YAML
+# Explore Dashboard YAML
 # Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+# AWS Cost Analysis Dashboard
 
 type: explore
 
-display_name: "CUR Table Metrics dashboard"
+display_name: "AWS Cost Explorer"
+description: "Interactive dashboard for analyzing AWS costs by service, account, region, and more"
 metrics_view: cur_metrics
 
-dimensions: '*'
-measures: '*'
+# Focused dimensions for cost analysis (ordered by importance)
+dimensions:
+  - service
+  - account_name
+  - account_id
+  - region
+  - charge_type
+  - pricing_term
+  - product_family
+  - instance_type
+  - usage_type
+  - operation
+  - payer_account_name
+  - availability_zone
+  - location
+  - savings_plan_offering_type
+  - tax_type
+  - description
+
+# Primary measures for cost analysis
+measures:
+  - total_cost
+  - blended_cost
+  - net_cost
+  - on_demand_cost
+  - estimated_savings
+  - total_discount
+  - reservation_effective_cost
+  - savings_plan_effective_cost
+  - usage_cost
+  - tax_cost
+  - fee_cost
+  - credit_cost
+  - refund_cost
+  - total_usage
+  - usage_hours
+  - line_items
+  - unique_services
+  - unique_accounts
+  - unique_regions
+  - avg_cost_per_hour
+
+# Time range options relevant for cost analysis
+time_ranges:
+  - PT24H       # Last 24 hours
+  - P7D        # Last 7 days
+  - P14D       # Last 14 days
+  - P30D       # Last 30 days
+  - P3M        # Last 3 months
+  - P6M        # Last 6 months
+  - P1Y        # Last year
+  - rill-TD    # Today
+  - rill-WTD   # Week to date
+  - rill-MTD   # Month to date
+  - rill-QTD   # Quarter to date
+  - rill-YTD   # Year to date
+  - rill-PM    # Previous month
+  - rill-PQ    # Previous quarter
+
+# Common timezones for AWS cost analysis
+time_zones:
+  - America/New_York
+  - America/Los_Angeles
+  - America/Chicago
+  - Europe/London
+  - Europe/Paris
+  - Asia/Tokyo
+  - Asia/Singapore
+  - UTC
+
+# Default view configuration
+defaults:
+  # Start with month-to-date view (most common for cost analysis)
+  time_range: rill-MTD
+
+  # Enable time comparison by default to see cost trends
+  comparison_mode: time
+
+  # Show total cost as the primary measure
+  measures:
+    - total_cost
+
+  # Default to service breakdown (most useful initial view)
+  dimensions:
+    - service

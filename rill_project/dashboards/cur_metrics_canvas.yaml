@@ -1,0 +1,292 @@
+# Canvas Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/canvas-dashboards
+# AWS Cost Analysis - Visual Dashboard
+
+type: canvas
+display_name: "AWS Cost Dashboard"
+max_width: 1600
+
+# Default settings
+defaults:
+  time_range: rill-MTD
+  comparison_mode: time
+
+# Enable filtering
+filters:
+  enable: true
+
+# Time range options
+time_ranges:
+  - P7D
+  - P14D
+  - P30D
+  - P3M
+  - P6M
+  - P1Y
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PM
+
+# Dashboard layout
+rows:
+  - items:
+      - width: 12
+        markdown:
+          content: |-
+            # AWS Cost Overview
+            Track your cloud spending across services, accounts, and regions
+          alignment:
+            horizontal: center
+            vertical: middle
+    height: 80px
+  - items:
+      - width: 12
+        kpi_grid:
+          metrics_view: cur_metrics
+          title: Cost Summary
+          measures:
+            - total_cost
+            - net_cost
+            - estimated_savings
+            - total_discount
+          comparison:
+            - delta
+            - percent_change
+          sparkline: bottom
+    height: 200px
+  - items:
+      - width: 12
+        kpi_grid:
+          metrics_view: cur_metrics
+          title: Usage Overview
+          measures:
+            - unique_services
+            - unique_accounts
+            - unique_regions
+            - line_items
+          comparison:
+            - delta
+    height: 160px
+  - items:
+      - width: 6
+        line_chart:
+          color: primary
+          description: ""
+          metrics_view: cur_metrics
+          title: ""
+          x:
+            field: line_item_usage_start_date
+            type: temporal
+          y:
+            field: total_cost
+            type: quantitative
+            zeroBasedOrigin: true
+      - width: 6
+        donut_chart:
+          metrics_view: cur_metrics
+          color:
+            field: service
+            limit: 10
+            type: nominal
+          measure:
+            field: total_cost
+            type: quantitative
+          innerRadius: 50
+    height: 350px
+  - items:
+      - width: 6
+        bar_chart:
+          metrics_view: cur_metrics
+          x:
+            field: service
+            limit: 10
+            type: nominal
+            sort: -y
+          y:
+            field: total_cost
+            type: quantitative
+            zeroBasedOrigin: true
+      - width: 6
+        bar_chart:
+          metrics_view: cur_metrics
+          x:
+            field: account_name
+            limit: 10
+            type: nominal
+            sort: -y
+          y:
+            field: total_cost
+            type: quantitative
+            zeroBasedOrigin: true
+    height: 350px
+  - items:
+      - width: 6
+        bar_chart:
+          metrics_view: cur_metrics
+          x:
+            field: region
+            limit: 15
+            type: nominal
+            sort: -y
+          y:
+            field: total_cost
+            type: quantitative
+            zeroBasedOrigin: true
+      - width: 6
+        donut_chart:
+          metrics_view: cur_metrics
+          color:
+            field: charge_type
+            limit: 8
+            type: nominal
+          measure:
+            field: total_cost
+            type: quantitative
+          innerRadius: 50
+    height: 350px
+  - items:
+      - width: 12
+        area_chart:
+          metrics_view: cur_metrics
+          color:
+            field: service
+            limit: 8
+            type: nominal
+            legendOrientation: top
+          x:
+            field: line_item_usage_start_date
+            type: temporal
+          y:
+            field: total_cost
+            type: quantitative
+            zeroBasedOrigin: true
+    height: 380px
+  - items:
+      - width: 4
+        donut_chart:
+          metrics_view: cur_metrics
+          color:
+            field: pricing_term
+            limit: 5
+            type: nominal
+          measure:
+            field: total_cost
+            type: quantitative
+          innerRadius: 50
+      - width: 8
+        bar_chart:
+          metrics_view: cur_metrics
+          x:
+            field: instance_type
+            limit: 15
+            type: nominal
+            sort: -y
+            showNull: false
+          y:
+            field: total_cost
+            type: quantitative
+            zeroBasedOrigin: true
+    height: 350px
+  - items:
+      - width: 12
+        markdown:
+          content: "## Top Cost Drivers"
+          alignment:
+            horizontal: left
+            vertical: middle
+    height: 60px
+  - items:
+      - width: 4
+        leaderboard:
+          metrics_view: cur_metrics
+          title: By Service
+          measures:
+            - total_cost
+          dimensions:
+            - service
+          num_rows: 10
+      - width: 4
+        leaderboard:
+          metrics_view: cur_metrics
+          title: By Account
+          measures:
+            - total_cost
+          dimensions:
+            - account_name
+          num_rows: 10
+      - width: 4
+        leaderboard:
+          metrics_view: cur_metrics
+          title: By Region
+          measures:
+            - total_cost
+          dimensions:
+            - region
+          num_rows: 10
+    height: 320px
+  - items:
+      - width: 12
+        markdown:
+          content: "## Savings & Commitments"
+          alignment:
+            horizontal: left
+            vertical: middle
+    height: 60px
+  - items:
+      - width: 4
+        kpi_grid:
+          metrics_view: cur_metrics
+          title: Commitment Costs
+          measures:
+            - reservation_effective_cost
+            - savings_plan_effective_cost
+          comparison:
+            - delta
+            - percent_change
+          sparkline: bottom
+      - width: 8
+        stacked_bar:
+          metrics_view: cur_metrics
+          color:
+            field: rill_measures
+            legendOrientation: top
+            type: value
+          x:
+            field: line_item_usage_start_date
+            limit: 30
+            type: temporal
+          y:
+            field: usage_cost
+            fields:
+              - usage_cost
+              - tax_cost
+              - fee_cost
+            type: quantitative
+            zeroBasedOrigin: true
+    height: 320px
+  - items:
+      - width: 12
+        markdown:
+          content: "## Detailed Cost Breakdown"
+          alignment:
+            horizontal: left
+            vertical: middle
+    height: 60px
+  - items:
+      - width: 12
+        table:
+          metrics_view: cur_metrics
+          title: Cost Details
+          columns:
+            - service
+            - account_name
+            - region
+            - charge_type
+            - total_cost
+            - net_cost
+            - estimated_savings
+            - total_usage
+          row_dimensions:
+            - service
+    height: 400px
