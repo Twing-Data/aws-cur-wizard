@@ -16,4 +16,4 @@ metrics_views:
     access: "'{{.user.domain }}' = 'twingdata.com'"
 
 features:
-  - dashboardChat
+  - dashboardChat: true
