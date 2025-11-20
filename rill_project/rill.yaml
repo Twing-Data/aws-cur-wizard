@@ -14,3 +14,6 @@ olap_connector: duckdb
 metrics_views:
   security:
     access: "'{{.user.domain }}' = 'twingdata.com'"
+
+features:
+  - dashboardChat
