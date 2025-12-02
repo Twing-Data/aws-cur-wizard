@@ -4,7 +4,14 @@
 type: model
 materialize: true
 
-sql: |
-  select * from read_{{ .env.input_data_type }}('s3://{{ .env.bucket_name }}/{{ .env.s3_input_data_dir }}/{{ .env.partition_scheme }}*.{{ .env.input_data_type }}')
+incremental: true
+refresh:
+  cron: "0 16 * * *"
 
-# Incremental?
+partitions:
+  glob:
+    path: "{{ .env.cost_files_path }}"
+    partition: directory
+
+sql: |
+  SELECT * FROM read_parquet('{{ .partition.uri }}/*.parquet') WHERE '{{ .partition.uri }}' IS NOT NULL
